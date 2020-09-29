@@ -3,8 +3,8 @@
  * @Author: xiao.zhang
  * @Date: 2020-08-02 21:59:20
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-09-17 10:11:06
- */ 
+ * @LastEditTime: 2020-09-29 13:53:56
+ */
 
 //  问题：
 //  1.什么是构造函数
@@ -18,24 +18,19 @@
 
 // 类添加属性和方法的方式方法,生成实例的写法都是一样的
 class Person1 {
-    constructor(name){
-        this.name = name;
-    }
-    eat1(){
-      
-    }
+  constructor(name) {
+    this.name = name
+  }
+  eat1() {}
 }
-
 
 const zx1 = new Person1('zhangxiao')
 
 // 构造函数添加属性和方法的方式写法,
-function Person2(name){
-    this.name = name;
+function Person2(name) {
+  this.name = name
 }
-Person2.prototype.eat2 = function(){
-
-}
+Person2.prototype.eat2 = function () {}
 const zx2 = new Person2('zhangxiao')
 console.log(zx2)
 // zx1 和 zx2 都是通过原型链调用的eat1 和 eat2方法
@@ -44,9 +39,3 @@ console.log(zx2)
 
 // 一个很好的例子：
 // https://blog.csdn.net/weixin_42006492/article/details/83753847
-
-
-
-
-
-

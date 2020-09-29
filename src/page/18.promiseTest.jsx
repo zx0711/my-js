@@ -3,11 +3,11 @@
  * @Author: xiao.zhang
  * @Date: 2020-09-25 16:23:45
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-09-27 11:20:57
+ * @LastEditTime: 2020-09-29 14:11:36
  */
 // new Promise(fn).then(successFn,failFn)
 
-import React from 'react';
+import React from 'react'
 
 class Test{
   constructor (fn){
