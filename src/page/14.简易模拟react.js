@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-09-16 17:57:15
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-09-18 18:29:59
+ * @LastEditTime: 2020-09-29 14:36:05
  */
 
 
@@ -55,4 +55,4 @@ likeButton1.onStateChange = (oldEl, newEl) => {
 const wrapper = document.querySelector('.wrapper')
 
 console.log('likeButton1.render()',likeButton1.render())
-wrapper.appendChild(likeButton1.render()) 
+wrapper.appendChild(likeButton1.render())
