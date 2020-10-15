@@ -24,6 +24,7 @@ function ReducerDemo() {
 }
 
 function countReducer(state, action) {
+  console.log('state, action', state, action)
   switch (action) {
     case 'add':
       return state + 1
