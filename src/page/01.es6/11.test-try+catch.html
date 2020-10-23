@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-10-23 17:03:28
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-10-23 17:55:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //try_catch好处：发现错误但不让程序终止，继续执行之后的语句
+      try {
+        //先从上到下执行try里面的语句，一旦发现错误则跳出try，不再执行try下面的语句
+        console.log('a')
+        // console.log(window.a)
+        window.a === 2
+
+        console.log('c')
+      } catch (e) {
+        console.log('======eeeee====', typeof e)
+        //如果try中发现错误，则执行catch中的语句，如果没有错误，则跳过catch
+        //e是个系统封装好的对象，包含name和message两个属性
+        //分别是错误名称(ex:ReferenceError)和错误信心(ex:b is not defined)
+        console.log(e.name + ':' + e.message)
+      }
+      console.log('d')
+    </script>
+  </body>
+</html>
