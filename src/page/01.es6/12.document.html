@@ -1,0 +1,28 @@
+<!--
+ * @Description: 练习DOM操作
+ * @Author: xiao.zhang
+ * @Date: 2020-10-28 14:15:51
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-10-28 16:20:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="first" value="{2}" data="{3}"></div>
+    <script>
+      const newdiv = document.createElement('div') // 新建一个div标签
+      const first = document.getElementById('first') // 获取id为first的标签
+
+      newdiv.setAttribute('id', 'second') // 给新建的div标签增加属性为id的属性，值为second
+      newdiv.setAttribute('ids', 'seconds') // 给新建的div标签增加属性为ids的属性，值为seconds
+      first.appendChild(newdiv) // 把这个新建的标签插入到id为first标签的里面
+      var t = document.createTextNode('hello world') // 新创建一个文本叫hello world
+      first.appendChild(t) // 把这个文本插入到id为first的标签上
+    </script>
+  </body>
+</html>
