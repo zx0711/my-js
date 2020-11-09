@@ -1,0 +1,51 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-05 16:16:03
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-06 15:41:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=414" />
+    <title>Document</title>
+    <style>
+      /* 相当于根标签的font-size */
+      /* 结果300*300 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        /* font-size: 30px; */
+      }
+      #parant {
+        font-size: 40px;
+      }
+      #test {
+        width: 375px;
+        height: 207px;
+        font-size: 20px;
+        background: blue;
+      }
+    </style>
+    <!-- rem适配的原理：改变了一个元素在不同设备上css像素的个数 -->
+    <!-- <script>
+      const html = document.querySelector('html')
+      html.style.fontSize = document.documentElement.clientWidth / 16 + 'px'
+    </script> -->
+    <!-- <script>
+      const styleNode = document.createElement('style')
+      const w = document.documentElement.clientWidth / 16
+      styleNode.innerHTML = 'html{font-size: ' + w + 'px!important}'
+      document.head.appendChild(styleNode)
+    </script> -->
+  </head>
+  <body>
+    <div id="parant">
+      <div id="test"></div>
+    </div>
+  </body>
+</html>

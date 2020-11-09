@@ -1,0 +1,51 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-06 17:39:05
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-09 10:49:56
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .test1 {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      .test2 {
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test1">
+      <div class="test2"></div>
+    </div>
+    <script>
+      document.addEventListener('mousedown', function (ev) {
+        // 阻止默认事件
+        ev.preventDefault()
+        return false
+      })
+
+      const test1 = document.querySelector('.test1')
+      const test2 = document.querySelector('.test2')
+      test1.addEventListener('mousedown', function (ev) {
+        console.log('touchstart1')
+        ev.stopPropagation()
+      })
+      test2.addEventListener('mousedown', function (ev) {
+        console.log('touchstart2')
+        // 取消冒泡
+        ev.stopPropagation()
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-06 16:19:31
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-06 16:27:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=div, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #test {
+        width: 16rem;
+        height: 1px;
+        background-color: black;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script>
+      window.onload = function () {
+        ;(function () {
+          const styleNode = document.createElement('style')
+          const w = document.documentElement.clientWidth / 16
+          styleNode.innerHTML = 'html{font-size: ' + w + 'px!important}'
+          document.head.appendChild(styleNode)
+        })()
+      }
+    </script>
+  </body>
+</html>
