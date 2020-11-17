@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/src/page/08.js/04.commonJS-node/node_modules
+# /src/page/08.js/05.commonJS-Browserify/node_modules
 
 # testing
 /coverage
