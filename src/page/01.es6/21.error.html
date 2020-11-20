@@ -1,0 +1,45 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-18 13:48:23
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-18 14:08:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>try catch</div>
+    <script>
+      try {
+        const ss = null
+        console.log(ss.name)
+      } catch (error) {
+        console.log(error)
+      }
+      console.log('我在try catch之后')
+    </script>
+    <script>
+      // 这种写法很好，就是一些不符合的判断条件可以报出来，因为如果只是单纯的使用 try catch，也只是try里面有语法错误才能在catch中拿到
+      function something() {
+        if (Math.random() > 0.5) {
+          console.log('当前大于0.5，不用抛出错误')
+        } else {
+          throw new Error('当前数小于0.5,抛出错误')
+        }
+      }
+
+      try {
+        something()
+      } catch (error) {
+        console.log('ssss', error)
+      }
+
+      console.log('我在throw后')
+    </script>
+  </body>
+</html>

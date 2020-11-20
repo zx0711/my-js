@@ -1,0 +1,45 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-17 19:26:48
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-17 19:28:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      function fn1(resolve, reject) {
+        setTimeout(function () {
+          console.log('步骤一：执行')
+          resolve('1')
+        }, 500)
+      }
+
+      function fn2(resolve, reject) {
+        setTimeout(function () {
+          console.log('步骤二：执行')
+          resolve('2')
+        }, 100)
+      }
+
+      new Promise(fn1)
+        .then(function (val) {
+          console.log(val)
+          return new Promise(fn2)
+        })
+        .then(function (val) {
+          console.log(val)
+          return 33
+        })
+        .then(function (val) {
+          console.log(val)
+        })
+    </script>
+  </body>
+</html>

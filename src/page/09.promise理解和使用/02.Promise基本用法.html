@@ -1,0 +1,79 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-17 19:31:38
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-18 16:26:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // fn执行器函数，执行异步任务
+      // 如果成功，调用resolve方法，如果失败，调用reject，也可以进行传参
+      function fn(resolve, reject) {
+        // something() // 执行一系列异步操作
+        setTimeout(() => {
+          if (Math.random() > 0.5) {
+            resolve('value,执行成功了')
+          } else {
+            reject('reason,执行失败了')
+          }
+        }, 0)
+      }
+      const newPromiseObj = new Promise(fn)
+
+      // onResolved
+      const fn1 = (value) => {
+        console.log(value)
+      }
+
+      // onRejected
+      const fn2 = (reason) => {
+        console.log(reason)
+      }
+
+      newPromiseObj.then(fn1, fn2)
+    </script>
+    <script>
+      const p4 = Promise.resolve(2)
+      p4.then((res) => {
+        console.log('=========', res)
+      })
+    </script>
+    <script>
+      const p1 = Promise.resolve(2)
+      const p2 = 42
+      const p3 = new Promise((resolve, reject) => {
+        setTimeout(resolve, 100, 'foo')
+      })
+      const pall = Promise.all([p1, p2, p3])
+      pall
+        .then((res) => {
+          console.log('pall', res)
+        })
+        .then(null, (error) => {
+          console.log('error', error)
+        })
+    </script>
+    <script>
+      const p = new Promise((resolve, reject) => {
+        throw new Error('出错了')
+      })
+
+      p.then(
+        (value) => {
+          console.log('成功' + value)
+        },
+        (reason) => {
+          console.log('失败' + reason)
+        }
+      )
+    </script>
+  </body>
+</html>

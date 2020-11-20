@@ -1,0 +1,41 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-18 16:47:27
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-18 17:00:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      new Promise((resolve, reject) => {
+        // resolve(1)
+        reject(1)
+      })
+        .then(
+          (value) => {
+            console.log('value1 value', value)
+          },
+          (reason) => {
+            console.log('value1 reason', reason)
+            return Promise.reject(20)
+          }
+        )
+        .then(
+          (value) => {
+            console.log('value2 value', value)
+          },
+          (reason) => {
+            console.log('value2 reason', reason)
+            console.log('sss')
+          }
+        )
+    </script>
+  </body>
+</html>

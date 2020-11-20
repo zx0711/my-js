@@ -1,0 +1,33 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-18 17:21:46
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-19 19:52:23
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 如果.then的第二个参数没有值，那么等于 throw reason
+      new Promise((resolve, reject) => {
+        // reject(1)
+        resolve(11)
+      })
+        .then(null, (reason) => {
+          throw reason
+        })
+        .then((value) => {
+          console.log('www', value)
+        })
+        .catch((error) => {
+          console.log(error) // throw error
+        })
+    </script>
+  </body>
+</html>
