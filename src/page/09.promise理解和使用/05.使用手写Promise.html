@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-18 18:00:28
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-20 16:06:39
+ * @LastEditTime: 2020-11-23 18:29:35
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="./06.手写Promise+lib/promise.js"></script>
+    <script src="./06.手写Promise+lib/promise_class.js"></script>
     <script>
       // const p = new Promise((resolve, reject) => {
       //   setTimeout(() => {
@@ -80,21 +80,32 @@
     </script>
 
     <script>
-      const p1 = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(1)
-        }, 1000)
+      // const p1 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve(1)
+      //   }, 1000)
+      // })
+      // const p2 = Promise.resolve(Promise.resolve(4))
+      // const pRace = Promise.race([101, p1, p2])
+      // pRace.then(
+      //   (value) => {
+      //     console.log('value', value)
+      //   },
+      //   (reason) => {
+      //     console.log('reason', reason)
+      //   }
+      // )
+    </script>
+
+    <script>
+      const p6 = Promise.resolveDelay(100, 10000)
+      const p7 = Promise.rejectDelay(77, 3000)
+      p6.then((value) => {
+        console.log('value', value)
       })
-      const p2 = Promise.resolve(Promise.resolve(4))
-      const pRace = Promise.race([101, p1, p2])
-      pRace.then(
-        (value) => {
-          console.log('value', value)
-        },
-        (reason) => {
-          console.log('reason', reason)
-        }
-      )
+      p7.then(null, (reason) => {
+        console.log('reason', reason)
+      })
     </script>
   </body>
 </html>

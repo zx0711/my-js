@@ -1,0 +1,48 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-24 11:35:58
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-24 14:06:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宏队列和微队列</title>
+  </head>
+  <body>
+    <script>
+      /*
+       * js中用来存储异步函数的队列包含2个
+       * 一个是宏队列：用来保存待执行的宏任务：比如定时器回调、DOM事件回调、ajax回调
+       * 一个是微队列：用来保存待执行的微任务：比如 promise回调、MutationObserver回调
+       * js引擎是单线程执行
+       * js引擎必须首先先执行所有的同步任务代码
+       * 每次准备取出第一个宏任务执行前，都要将所有的微任务一个个取出来执行完成，才会去执行宏任务
+       */
+      setTimeout(() => {
+        // 会立即放入宏队列
+        console.log('timeout callback1()')
+        Promise.resolve(3).then((value) => {
+          // 会立即放入微队列
+          console.log('Promise onResolved3()', value)
+        })
+      }, 0)
+      setTimeout(() => {
+        // 会立即放入宏队列
+        console.log('timeout callback2()')
+      }, 0)
+
+      Promise.resolve(1).then((value) => {
+        // 会立即放入微队列
+        console.log('Promise onResolved1()', value)
+      })
+      Promise.resolve(2).then((value) => {
+        // 会立即放入微队列
+        console.log('Promise onResolved2()', value)
+      })
+    </script>
+  </body>
+</html>

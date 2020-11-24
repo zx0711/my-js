@@ -3,14 +3,15 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-19 10:48:13
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-23 18:02:33
+ * @LastEditTime: 2020-11-23 18:23:10
  */
-;(function (window) {
-  const PENDING = 'pending'
-  const RESOLVED = 'resolved'
-  const REJECTED = 'rejected'
 
-  function Promise(excutor) {
+const PENDING = 'pending'
+const RESOLVED = 'resolved'
+const REJECTED = 'rejected'
+
+class Promise {
+  constructor(excutor) {
     const self = this
     this.status = PENDING // 给promise对象指定status属性，初始值为pending
     this.data = undefined
@@ -61,7 +62,7 @@
   }
 
   // .then是同步的
-  Promise.prototype.then = function (onResolved, onRejected) {
+  then(onResolved, onRejected) {
     onResolved =
       typeof onResolved === 'function'
         ? onResolved
@@ -147,11 +148,11 @@
     指定失败的回调函数
     返回一个新的promise对象
    */
-  Promise.prototype.catch = function (onRejected) {
+  catch(onRejected) {
     return this.then(undefined, onRejected)
   }
 
-  Promise.resolve = function (value) {
+  static resolve = function (value) {
     // 返回一个成功/失败的promise
     return new Promise((resolve, reject) => {
       if (value instanceof Promise) {
@@ -163,16 +164,17 @@
   }
 
   /*
-  Promise函数对象的reject方法，
-  返回一个指定的reason的失败的promise
+     Promise函数对象的reject方法，
+     返回一个指定的reason的失败的promise
    */
-  Promise.reject = function (reason) {
+  static reject = function (reason) {
     // 返回一个失败的promise
     return new Promise((resolve, reject) => {
       reject(reason)
     })
   }
-  Promise.all = function (promises) {
+
+  static all = function (promises) {
     // 用来保存所有成功value的数组
     const values = new Array(promises.length)
     // 用来保存成功promise的数量
@@ -200,8 +202,7 @@
     })
   }
 
-  /* 只有第一次调用的才有效果 */
-  Promise.race = function (promises) {
+  static race = function (promises) {
     return new Promise((resolve, reject) => {
       promises.forEach((p, index) => {
         Promise.resolve(p).then(
@@ -216,10 +217,7 @@
     })
   }
 
-  /**
-   * 返回一个promise,它在指定的时间后才确定结果
-   */
-  Promise.resolveDelay = function (value, time) {
+  static resolveDelay = function (value, time) {
     // 返回一个成功/失败的promise
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -232,10 +230,7 @@
     })
   }
 
-  /**
-   * 返回一个promise对象，它在指定的时间后才失效
-   */
-  Promise.rejectDelay = function (reason, time) {
+  static rejectDelay = function (reason, time) {
     // 返回一个失败的promise
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -243,6 +238,4 @@
       }, time)
     })
   }
-
-  window.Promise = Promise
-})(window)
+}

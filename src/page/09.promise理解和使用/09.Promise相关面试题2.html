@@ -1,0 +1,48 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-24 14:07:51
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-24 14:32:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      //2 5 3 4 1
+      // 执行器是同步函数，.then也是同步函数
+      setTimeout(() => {
+        console.log(1)
+      }, 0)
+
+      new Promise((resolve) => {
+        console.log(2)
+        resolve()
+      })
+        .then(() => {
+          console.log(3)
+        })
+        .then(() => {
+          console.log(4)
+        })
+      console.log(5)
+    </script> -->
+
+    <script>
+      let p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(1) // 状态只改为1次，所以就不执行了
+        }, 0)
+        resolve(2)
+      })
+      p.then((arg) => {
+        console.log('=========arg=====', arg)
+      })
+    </script>
+  </body>
+</html>
