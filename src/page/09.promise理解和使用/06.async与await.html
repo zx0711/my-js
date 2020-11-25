@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-23 19:40:16
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-24 11:33:02
+ * @LastEditTime: 2020-11-24 17:52:27
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -25,16 +25,16 @@
         })
       }
 
-      // const result = fn1()
-      // result.then(
-      //   (value) => {
-      //     console.log('onResolved()', value)
-      //   },
-      //   (reason) => {
-      //     console.log('onRejected', reason)
-      //   }
-      // )
-      // console.log('result', result)
+      const result = fn1()
+      result.then(
+        (value) => {
+          console.log('onResolved()', value)
+        },
+        (reason) => {
+          console.log('onRejected', reason)
+        }
+      )
+      console.log('result', result)
     </script>
 
     <script>
@@ -60,7 +60,7 @@
       }
 
       async function fn3() {
-        // await右侧表达式为promise,得到的结果就是promise成功的value
+        // await右侧表达式为promise,得到的结果就是promise返回的value
         // const value = await fn2()
         // await右侧表达不是promise,得到的结果就是表达式的值
         // const value = await fn4()
@@ -69,6 +69,7 @@
         try {
           const fn1value = await fn1()
           const value2 = await fn2()
+          const value4 = await fn4()
         } catch (error) {
           console.log('得到失败的结果', error)
         }

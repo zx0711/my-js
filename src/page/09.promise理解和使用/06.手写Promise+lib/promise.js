@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-19 10:48:13
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-23 18:02:33
+ * @LastEditTime: 2020-11-24 17:57:02
  */
 ;(function (window) {
   const PENDING = 'pending'
@@ -62,6 +62,7 @@
 
   // .then是同步的
   Promise.prototype.then = function (onResolved, onRejected) {
+    // 实现透传
     onResolved =
       typeof onResolved === 'function'
         ? onResolved

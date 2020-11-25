@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-18 18:00:28
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-23 18:29:35
+ * @LastEditTime: 2020-11-24 17:55:26
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -46,55 +46,57 @@
       //   )
     </script>
     <script>
-      // const p1 = Promise.resolve(2)
-      // const p2 = Promise.resolve(Promise.resolve(3))
-      // const p3 = Promise.resolve(Promise.reject(4))
-      // const p4 = Promise.reject(5)
-      // p1.then((value) => {
-      //   console.log('====value1====', value)
-      // })
-      // p2.then((value) => {
-      //   console.log('====value2====', value)
-      // })
-      // p3.then(null, (value) => {
-      //   console.log('====value3====', value)
-      // })
-      // p4.catch((value) => {
-      //   console.log('====value4====', value)
-      // })
+      const p1 = Promise.resolve(2)
+      const p2 = Promise.resolve(Promise.resolve(3))
+      const p3 = Promise.resolve(Promise.resolve(4))
+      const p4 = Promise.reject(5)
+      p1.then((value) => {
+        console.log('====value1====', value)
+      })
+      p2.then((value) => {
+        console.log('====value2====', value)
+      })
+      p3.then(null, (value) => {
+        console.log('====value3====', value)
+      }).then((value) => {
+        console.log('====value31====', value)
+      })
+      p4.catch((value) => {
+        console.log('====value4====', value)
+      })
     </script>
     <script>
-      // const p1 = Promise.resolve(2)
-      // const p2 = Promise.resolve(Promise.resolve(3))
-      // const p3 = Promise.resolve(Promise.resolve(4))
-      // // const p5 = 'hello'
-      // const pAll = Promise.all([p1, p2, p3])
-      // pAll.then(
-      //   (value) => {
-      //     console.log('value', value)
-      //   },
-      //   (reason) => {
-      //     console.log('reason', reason)
-      //   }
-      // )
+      const p1 = Promise.resolve(2)
+      const p2 = Promise.resolve(Promise.resolve(3))
+      const p3 = Promise.resolve(Promise.resolve(4))
+      // const p5 = 'hello'
+      const pAll = Promise.all([p1, p2, p3])
+      pAll.then(
+        (value) => {
+          console.log('value', value)
+        },
+        (reason) => {
+          console.log('reason', reason)
+        }
+      )
     </script>
 
     <script>
-      // const p1 = new Promise((resolve, reject) => {
-      //   setTimeout(() => {
-      //     resolve(1)
-      //   }, 1000)
-      // })
-      // const p2 = Promise.resolve(Promise.resolve(4))
-      // const pRace = Promise.race([101, p1, p2])
-      // pRace.then(
-      //   (value) => {
-      //     console.log('value', value)
-      //   },
-      //   (reason) => {
-      //     console.log('reason', reason)
-      //   }
-      // )
+      const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(1)
+        }, 1000)
+      })
+      const p2 = Promise.resolve(Promise.resolve(4))
+      const pRace = Promise.race([101, p1, p2])
+      pRace.then(
+        (value) => {
+          console.log('value', value)
+        },
+        (reason) => {
+          console.log('reason', reason)
+        }
+      )
     </script>
 
     <script>
