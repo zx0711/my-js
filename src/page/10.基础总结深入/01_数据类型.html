@@ -1,0 +1,71 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-25 11:18:09
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-25 14:08:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01_数据类型</title>
+  </head>
+  <body>
+    <!--
+      1,分类：
+      * 基本（值）类型
+        * String: 任意的字符串
+        * Number： 任意的数字
+        * boolean： true/false
+        * undefined: undefined
+        * null: null
+      * 对象（引用）类型
+        * Object: 任意对象(本质上是只有这一类)
+        * Function：一种特别的对象（可以执行）
+        * Array：一种特别的对象（有数值下标，内部数据是有序的）
+      2，判断：
+      * typeof: 返回string类型
+          * 可以判断undefined,数值，字符串，布尔值，function
+          * 不可以判断null与object,array与object
+      * instanceof：判断对象的具体类型
+      * ===
+          * 可以判断undefined,null
+    -->
+    <script>
+      // 1,基本
+      // typeof返回数据类型的字符串表达式
+      let a
+      console.log(a, typeof a, typeof a === 'undefined', a === undefined) // undefined, 'undefined', true, true
+
+      a = 3
+      console.log(typeof a === 'number') // true
+
+      a = 'zx'
+      console.log(typeof a === 'String') // false
+
+      a = null
+      console.log(typeof a) //object
+
+      // 2，对象
+      let b1 = {
+        b2: [1, 'abc', console.log],
+        b3: function () {
+          console.log('b3')
+          return function () {
+            return 'zx'
+          }
+        },
+      }
+      // instance实例
+      // b1是不是Object的实例对象
+      console.log(b1 instanceof Object, b1 instanceof Array) // true, false
+      console.log(b1.b2 instanceof Array, b1.b2 instanceof Object) // true,true
+      console.log(b1.b3 instanceof Function, b1.b3 instanceof Object) // true,true
+
+      console.log(typeof b1.b3) // 'function'
+      console.log(b1.b3()()) // 'function'
+    </script>
+  </body>
+</html>

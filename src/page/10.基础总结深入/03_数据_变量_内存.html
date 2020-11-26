@@ -1,0 +1,64 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-25 14:47:06
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-25 15:35:43
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!-- 引用变量赋值问题 -->
+    <!-- n个引用变量指向同一个对象（他们保存的内容都指向同一个地址值）
+      通过一个变量修改对象内部数据，另一个变量看到的是修改之后的数据
+     -->
+    <!-- n个引用变量指向同一个对象,让其中一个引用变量指向另一个对象，
+      另一引用变量依然指向前一个对象
+     -->
+    <script>
+      var obj1 = { name: 'tom' }
+      var obj2 = obj1
+      obj2.age = 12
+      console.log(obj1.age)
+
+      function fn(obj) {
+        obj.name = 'bob'
+      }
+
+      fn(obj1)
+
+      console.log(obj2.name)
+    </script>
+
+    <script>
+      var a = { age: 12 }
+      var b = a
+      a = { name: 'bob', age: 13 }
+      console.log('b', b.age, a.name, a.age) // 12 bob 13
+
+      function fn1(obj) {
+        obj = { age: 15 }
+      }
+
+      fn1(a)
+
+      console.log(a.age)
+    </script>
+
+    <script>
+      // 在js调用函数时，传递变量参数时，是值传递还是引用传递
+      // 可能是值传递也可能是引用传递
+      var a = 3
+      function fn(a) {
+        a = a + 1
+      }
+      fn(a)
+      console.log(a) //3
+    </script>
+  </body>
+</html>

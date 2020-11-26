@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-25 15:58:24
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-25 16:58:45
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    1,如何定义函数
+    * 函数声明
+    * 表达式
+    2，如何执行调用
+    * test()： 直接调用
+    * obj.tesy(): 通过对象调用
+    * new test(): new 调用
+    * test.call/apply(obj)： 临时让test 成为obj的方法进行调用
+   -->
+    <script>
+      function fn() {
+        // 函数声明
+        console.log('fn1()')
+      }
+
+      var fn2 = function () {
+        //表达式
+        console.log('fn2')
+      }
+    </script>
+    <script>
+      var obj = {}
+      function test2() {
+        this.XXX = 'atguigu'
+      }
+      // obj.test2() 不能直接调用，根本就没有
+      test2.call(obj) //obj.test2()。可以让一个函数成为指定任意对象的方法进行调用
+      console.log(obj.XXX)
+    </script>
+  </body>
+</html>

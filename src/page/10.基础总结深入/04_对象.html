@@ -1,0 +1,50 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-25 15:40:33
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-25 15:56:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      1,什么是对象？ 
+    * 多个数据的封装体 
+    * 用来保存多个数据的容器
+    * 一个对象代表现实中的一个事物 
+      2,为什么要用对象
+      * 统一管理多个数据
+      3，对象的组成
+      * 属性： 属性名都是字符串，
+      * 方法： 一种特别的属性（属性值是函数）
+      4，如何访问对象内部数据
+      *  .属性名,有时候不能用
+      * ['属性名']，一般都是通用
+      5，什么时候必须使用['属性名']方式
+      * 属性名包括- ，空格
+      * 变量名不确定
+  -->
+    <script>
+      var obj = {
+        name: 'zx',
+        age: 18,
+      }
+    </script>
+    <script>
+      var p = {}
+      // p.content - type = 'text/json'
+      p['content - type'] = 'text/json'
+
+      var porpName = 'myAge'
+      var value = 18
+      // p.porpName
+      p[porpName]
+    </script>
+  </body>
+</html>
