@@ -1,0 +1,49 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-26 14:20:05
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-30 11:36:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>原型链</title>
+  </head>
+  <body>
+    <!-- 1,原型链 访问一个对象的属性时 * 现在自身属性中查找，找到返回 -->
+    <script>
+      function Fn() {
+        this.test1 = () => {
+          console.log('test1')
+        }
+      }
+      Fn.prototype.test2 = () => {}
+
+      var fn = new Fn()
+      console.log(Fn.prototype)
+      fn.test1()
+      fn.test2()
+      // fn.test3()
+
+      console.log(fn.__proto__)
+    </script>
+    <script>
+      // 所有函数都有显示和隐式原型，隐式原型指向Function.prototype.显示原型指向一个空对象（空的原型对象）
+      function Foo() {}
+      // 相当于
+      var Foo = new Function()
+
+      // 所以Foo既有prototype也有_proto_(函数对象是大写Function的实例)
+    </script>
+
+    <script>
+      //Function自身的显示原型和自身隐式原型是一样的
+      //因为所有的函数其实都是相当于new Function()，所以 所有函数的隐式原型都是一样的，都是一个函数
+      const dd = new Function()
+      console.log(dd.__proto__ === Function.prototype) // true
+    </script>
+  </body>
+</html>

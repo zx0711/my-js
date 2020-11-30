@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      1,原型和原型链 
+      * 原型(prototype)
+        * 函数对象才有prototype属性
+        * 所有的函数都有显式原型属性
+        * prototype指向的对象为原型对象，原型对象上有一个constructor指向这个函数对象
+          * Fn.prototype === Object
+          * Object.constructor === Fn
+        * this.prototype = {} //创建函数对象给函数添加一个prototype属性，值为一个空的Object对象，这个对象就是原型对象
+        * 函数是Function的实例，实例包括：函数和new 构造函数。但是大部分实例是指new 构造函数
+      * 显式原型和隐式原型
+        * __proto__是new的时候产生的
+          * this.__proto__ = Person.prototype
+      * 原型链
+        * 查找实例对象的属性
+        * 是隐式原型所指向的链
+          * const fn = new Fn() => fn2.__proto__.__proto__.__proto__ = null
+          * fn顺着原型链查找属性，找不到会返回undefined,查找方法，找不到会报错
+        * 作用：  
+          * 帮助我们查找对象的属性和方法
+      * instanceof
+        * 用法：A instanceof B： A一般是实例对象，B是构造函数(A的隐式原型链不论多长多短最后可以找到B的显式原型，那么返回true)
+        * 一个实例对象的隐式原型对象可能有多个，向上查找，找到的都是实例对象的原型对象，上面的方法和属性都可继承，顶部是Object原型
+      * 一般的函数的原型对象的隐式对象都是Object函数的原型对象
+        * function GG(){} => GG.prototype.__proto__ === Object.prototype
+      2，执行上下文和执行上下文栈 
+      * 栈特点：后进先出
+      * 队列特别：先进先出
+     -->
+  </body>
+</html>

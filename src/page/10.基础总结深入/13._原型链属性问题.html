@@ -1,0 +1,43 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-26 20:00:55
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-27 10:52:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>原型链属性问题</title>
+  </head>
+  <body>
+    <!-- 
+      1，读取对象的属性时：会自动到原型链上查找
+      2, 设置对象的属性值时：不会查找原型链，如果当前对象中没有此属性，直接添加此属性并设置其值
+      3,方法一般定义在原型中(prototype)，属性一般通过构造函数定义在对象本身身上（也就是定义在实例身上）
+     -->
+    <script>
+      function Fn() {}
+      Fn.prototype.name = 'zx'
+
+      const fn = new Fn()
+      console.log(fn)
+      let fn2 = new Fn()
+      fn2.name = 'bbbb'
+      console.log(fn2.name, fn2)
+    </script>
+
+    <script>
+      function Person(name, age) {
+        this.name = name
+        this.age = age
+      }
+      Person.prototype.age = 222
+
+      let person = new Person('zx', 18)
+      console.log('person', person.__proto__)
+    </script>
+  </body>
+</html>

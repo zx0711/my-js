@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-27 14:56:19
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-27 17:49:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>执行上下文</title>
+  </head>
+  <body>
+    <!-- 
+      1，变量声明提升
+      * 通过var定义的变量，在定义语句之前就可访问，
+      * 值： undefined
+      2,函数声明提升
+      * 通过function声明的函数，在之前就可直接调用
+      * 值：函数定义（对象）（可以直接拿到）
+     -->
+    <script>
+      var a = 4
+      function dd() {
+        console.log(a) // 变量提升
+        var a = 3
+      }
+      dd()
+
+      console.log(b) // undefined 变量提升
+      f2() // 可调用 函数提升（必须声明的方式）
+      fn3() //不能 变量提升
+
+      function f2() {
+        console.log('fn2()')
+      }
+
+      var b = 12
+
+      var fn3 = function () {
+        console.log('fn3')
+      }
+    </script>
+  </body>
+</html>

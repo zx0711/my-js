@@ -1,0 +1,48 @@
+<!--
+ * @Description: 显式原型和隐式原型
+ * @Author: xiao.zhang
+ * @Date: 2020-11-26 11:40:10
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-11-26 19:24:53
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>显式原型和隐式原型</title>
+  </head>
+  <body>
+    <!-- 
+      1,每个函数function都有一个prototype，即显示原型
+      2，每个实例对象都有一个_proto_,可称为隐式原型
+      3，实例对象的隐式原型的值等于其对应构造函数的显式原型的值
+
+      * 函数的prototype:在定义函数时，自动添加的，默认值是一个空Object对象
+      * 对象的__proto__：创建对象时，自动添加的。默认值是构造函数的prototype
+      * 程序员能直接操作显式对象，但不能直接操作隐式对象（es6之前）
+     -->
+    <script>
+      function Fn() {
+        // this.prototype = {}
+      }
+      // 1,每个函数function都有一个prototype，即显示原型
+      console.log(Fn.prototype)
+
+      // 2，每个实例对象都有一个_proto_,可称为隐式原型
+      var fn = new Fn() // this.__proto__ = Fn.prototype
+      console.log(fn.__proto__)
+
+      // 3，实例对象的隐式原型的值为其对应构造函数的显式原型的值
+      console.log(Fn.prototype === fn.__proto__) // true
+
+      // 给原型添加方法
+      Fn.prototype.test = () => {
+        console.log('test()')
+      }
+
+      // 通过实例对象调用原型的方法
+      fn.test()
+    </script>
+  </body>
+</html>
