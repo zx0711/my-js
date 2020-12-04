@@ -1,0 +1,40 @@
+<!--
+ * @Description: 闭包的理解
+ * @Author: xiao.zhang
+ * @Date: 2020-12-01 14:27:00
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-01 14:49:57
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>理解闭包</title>
+  </head>
+  <body>
+    <!-- 
+  1,如何产生闭包
+  * 当一个嵌套的内部(子)函数引用了嵌套的外部(父)函数的变量或者函数时，就产生了闭包
+  2，闭包到底是什么
+  * 理解一: 闭包是嵌套的内部函数
+  * 理解二：包含被引用变量的对象才为闭包
+  3，产生闭包的条件
+  * 函数嵌套
+  * 内部函数引用了外部函数的变量或者方法
+  * 一定要调用外部函数才可以
+ -->
+    <script>
+      function fn1() {
+        const a = 2
+        // fn2是闭包
+        function fn2() {
+          // 执行函数定义就会产生闭包，不用调用此函数，但是外部函数一定要调用
+          console.log('a', a)
+        }
+        return fn2()
+      }
+      fn1()
+    </script>
+  </body>
+</html>

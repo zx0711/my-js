@@ -1,0 +1,79 @@
+<!--
+ * @Description: 作用域与作用域链
+ * @Author: xiao.zhang
+ * @Date: 2020-11-30 19:53:42
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-01 11:23:08
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作用域</title>
+  </head>
+  <body>
+    <!-- 
+    1,理解： 
+    * 就是一块地盘，一个代码段所在的区域 
+    * 它是静态的，在编写代码时就确定了 
+    2，分类 
+    * 全局作用域 
+    * 局部作用域 
+    * 没有块作用域（es6开始有了） 
+    3，作用
+    * 隔离变量，不同作用域下同名变量不会有冲突
+    4，执行上下文和函数作用域区别
+    * 区别1
+      * 全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时，已经被确定了，而不是函数调用时。
+      * 全局执行上下文环境是在全局作用域确定之后，js代码马上执行之前创建
+      * 函数执行上下文是在调用函数时，函数代码体执行之前创建
+    * 区别2
+      * 作用域是静态的，只要函数定义好了就一直存在，且不会再有变化
+      * 执行上下文是动态的，调用函数时创建，函数结束会自动释放
+    * 区别3
+      * 执行上下文：n+1原则，n是调用函数的次数
+      * 函数作用域：n+1原则，n是定义函数的次数
+    * 联系
+      * 上下文环境是从属于所在的作用域
+      * 全局上下文环境=>全局作用域
+      * 函数上下文环境=>对应的函数作用域
+  -->
+
+    <script>
+      // 没有块作用域，如果用es6语法，const或let则有块作用域
+      if (true) {
+        var ss = 2
+      }
+      console.log('ss', ss)
+    </script>
+
+    <script>
+      // 测试了一番，只有if语句，且不用es6语法才会拿到作用域里的值
+      function hh() {
+        const jj = 11111
+      }
+      hh()
+      console.log('hh', jj)
+    </script>
+
+    <script>
+      var a = 10
+      var b = 20
+      function fn(x) {
+        var a = 100
+        c = 300
+        console.log('fn', a, b, c, x)
+
+        function bar(x) {
+          var a = 1000
+          var d = 400
+          console.log('bar', a, b, c, d, x)
+        }
+        bar(100)
+        bar(20)
+      }
+      fn(10)
+    </script>
+  </body>
+</html>

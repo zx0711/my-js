@@ -1,0 +1,43 @@
+<!--
+ * @Description: 闭包
+ * @Author: xiao.zhang
+ * @Date: 2020-12-01 13:49:26
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-01 14:26:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闭包</title>
+  </head>
+  <body>
+    <!-- 实现点击每个按钮提示按钮的顺序 -->
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <script>
+      const buttons = document.getElementsByTagName('button')
+      console.log('buttons', buttons.length)
+
+      // 此时的i是全局变量，不是局部变量；只有在函数内部才是局部变量
+      for (var i = 0; i < buttons.length; i++) {
+        var btn = buttons[i]
+        btn.onclick = function () {
+          alert('第' + (i + 1) + '个') // 一直都是打印 第3个
+        }
+      }
+
+      // 使用匿名函数自调用(利用闭包实现)
+      for (var i = 0; i < buttons.length; i++) {
+        ;(function (i) {
+          var btn = buttons[i]
+          btn.onclick = function () {
+            alert('第' + (i + 1) + '个') // 打印成功，第1个 第2个 第3个
+          }
+        })(i)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-12-01 14:54:36
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-01 16:13:07
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>常见闭包</title>
+  </head>
+  <body>
+    <!-- 
+      1，将函数作为父函数的返回值
+      3，闭包产生的个数和外部函数执行的次数有关，和内部函数执行的次数没有关系
+     -->
+    <script>
+      function fn1() {
+        var a = 2
+        function fn2() {
+          a++
+          console.log('a', a)
+        }
+        return fn2
+      }
+
+      const f = fn1()
+      f()
+      f()
+      fn1()
+    </script>
+    <!-- 2，将函数作为实参传递给另一个函数使用 -->
+    <script>
+      function showDelay(msg, time) {
+        setTimeout(function () {
+          alert(msg)
+        }, time)
+      }
+      showDelay('zx', 200)
+    </script>
+
+    <!-- 
+      4,闭包的作用
+      * 1，使用函数内部的变量在函数执行完后，仍然可以存活在内存中（延长了局部变量的生命周期）
+      * 2，使函数外部可以操作到函数内部的变量或函数
+
+      5，问题
+      * 1，函数执行完后，函数内部声明的局部变量是否还存在？一般是不存在。在闭包中的局部变量才会存在
+      * 2，在函数外部能直接访问函数内部的局部变量吗？不能，但是可以通过闭包让外部操作它
+
+      6，闭包的生命周期
+      * 1，产生：在嵌套内部函数定义完成时就产生了（不是在调用阶段）（函数提升，内部函数对象已经创建）
+      * 2，在嵌套内部函数成为垃圾对象时
+     -->
+    <script></script>
+  </body>
+</html>
