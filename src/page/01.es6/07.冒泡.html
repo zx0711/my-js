@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description: 事件委托例子
  * @Author: xiao.zhang
  * @Date: 2020-10-22 11:32:00
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-10-22 17:27:19
+ * @LastEditTime: 2020-12-04 17:44:10
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,116 +13,6 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <div id="s1">
-      s1
-      <div id="s2">s2</div>
-    </div>
-    <script>
-      s1.addEventListener(
-        'click',
-        function (e) {
-          console.log('s1 冒泡事件')
-        },
-        false
-      )
-      s2.addEventListener(
-        'click',
-        function (e) {
-          console.log('s2 冒泡事件')
-        },
-        false
-      )
-
-      s1.addEventListener(
-        'click',
-        function (e) {
-          console.log('s1 捕获事件')
-        },
-        true
-      )
-
-      s2.addEventListener(
-        'click',
-        function (e) {
-          console.log('s2 捕获事件')
-        },
-        true
-      )
-    </script> -->
-    <!-- <ul id="color-list">
-      <li>red</li>
-      <li>yellow</li>
-      <li>blue</li>
-      <li>green</li>
-      <li>black</li>
-      <li>white</li>
-    </ul>
-    <script>
-      ;(function () {
-        var color_list = document.getElementById('color-list')
-        var colors = color_list.getElementsByTagName('li')
-        for (var i = 0; i < colors.length; i++) {
-          colors[i].addEventListener('click', showColor, false)
-        }
-        function showColor(e) {
-          var x = e.target
-          console.log('The color is ' + x.innerHTML)
-        }
-      })()
-    </script> -->
-    <!-- <ul id="ul1">
-      <li>111</li>
-      <li>222</li>
-      <li>333</li>
-      <li>444</li>
-    </ul>
-    <script>
-      window.onload = function () {
-        var oUl = document.getElementById('ul1')
-        var aLi = oUl.getElementsByTagName('li')
-        // for (var i = 0; i < aLi.length; i++) {
-        //   aLi[i].onclick = function () {
-        //     alert(123)
-        //   }
-        // }
-        oUl.onclick = function () {
-          alert(123)
-        }
-      }
-    </script> -->
-    <!-- <input type="button" name="" id="btn" value="添加" />
-    <ul id="ul1">
-      <li>111</li>
-      <li>222</li>
-      <li>333</li>
-      <li>444</li>
-    </ul>
-    <script>
-      window.onload = function () {
-        var oBtn = document.getElementById('btn')
-        var oUl = document.getElementById('ul1')
-        var aLi = oUl.getElementsByTagName('li')
-        var num = 4
-
-        //鼠标移入变红，移出变白
-        for (var i = 0; i < aLi.length; i++) {
-          aLi[i].onmouseover = function () {
-            this.style.background = 'red'
-          }
-          aLi[i].onmouseout = function () {
-            this.style.background = '#fff'
-          }
-        }
-        //添加新节点
-        oBtn.onclick = function () {
-          num++
-          var oLi = document.createElement('li')
-          oLi.innerHTML = 111 * num
-          oUl.appendChild(oLi)
-        }
-      }
-    </script> -->
-
     <ul id="myLinks">
       <li id="goSomewhere">Go somewhere</li>
       <li id="doSomething">Do something</li>

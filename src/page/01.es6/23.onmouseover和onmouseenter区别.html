@@ -1,0 +1,53 @@
+<!--
+ * @Description: onmouseover 、onmouseout 与onmouseenter 、onmouseleave区别
+ * @Author: xiao.zhang
+ * @Date: 2020-12-08 15:39:21
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-08 16:18:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="a" style="width: 300px; height: 300px; background-color: yellow">
+      <div class="a">1</div>
+      <div class="b">2</div>
+    </div>
+    <!-- 
+      * onmouseover和onmouseout一起使用，鼠标经过自身触发事件，经过其子元素也触发该事件，每次经过一次子元素都触发该事件
+      * onmouseenter和onmouseleave一起使用，鼠标经过自身或经过子元素都会触发事件，但是只触发一次
+     -->
+    <script>
+      var aNode = document.getElementById('a')
+      // aNode.onmouseover = function () {
+      //   console.log('1')
+      //   var r = parseInt(Math.random() * 256)
+      //   var g = parseInt(Math.random() * 256)
+      //   var b = parseInt(Math.random() * 256)
+      //   var rgb = `rgb(${r},${g},${b})`
+      //   aNode.style.background = rgb
+      // }
+
+      // aNode.onmouseout = function () {
+      //   console.log('111')
+      // }
+
+      aNode.onmouseenter = function () {
+        console.log('2')
+        var r = parseInt(Math.random() * 256)
+        var g = parseInt(Math.random() * 256)
+        var b = parseInt(Math.random() * 256)
+        var rgb = `rgb(${r},${g},${b})`
+        aNode.style.background = rgb
+      }
+
+      aNode.onmouseleave = function () {
+        console.log('222')
+      }
+    </script>
+  </body>
+</html>
