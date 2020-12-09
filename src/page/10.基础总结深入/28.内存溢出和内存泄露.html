@@ -1,0 +1,63 @@
+<!--
+ * @Description: 内存溢出和内存泄露
+ * @Author: xiao.zhang
+ * @Date: 2020-12-08 17:07:40
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-08 17:55:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 
+      1.内存溢出(就是内存不够用)
+      * 一种程序运行出现的错误
+      * 当程序运行需要的内存超过来剩余的内存时，就会抛出内存溢出的错误
+      2.内存泄露（就是指占用空间，内存在一点点变少）
+      * 占用的内存没有及时释放
+      * 内存泄露积累多了就容易内存溢出
+      * 常见的内存泄露：
+        * 意外的全局变量
+        * 没有及时清理的计时器和回调函数
+        * 闭包
+     -->
+    <script>
+      // 1.内存溢出
+      var obj = {}
+      for (var i = 0; i < 10000; i++) {
+        obj[i] = new Array(10000000)
+        console.log('-------')
+      }
+
+      // 2，内存泄露
+      // 意外的全局变量
+      function fn() {
+        a = 3
+        console.log('a', a)
+      }
+      fn()
+
+      //启动循环定时器后不清理
+      var timer = setInterval(() => {
+        console.log('---------123')
+      }, 1000)
+      clearInterval(timer)
+
+      //闭包
+      function fn1() {
+        var a = 4
+        function fn2() {
+          console.log(++a)
+        }
+        return fn2
+      }
+      var f = fn1()
+      f()
+    </script>
+  </body>
+</html>
