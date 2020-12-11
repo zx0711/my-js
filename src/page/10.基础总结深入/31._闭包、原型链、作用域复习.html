@@ -1,0 +1,33 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-12-10 11:03:55
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-10 13:58:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    1，下面结果的原因
+    * window是顺着作用域从里到外查找，找到window之后，找a 是顺着window的原型链查找
+    * a是顺着作用域从里到外查找，找不到就报错了
+   -->
+    <script>
+      console.log(window.a) //undefined，
+
+      console.log(a) //报错
+    </script>
+
+    <!-- 
+    1，下面结果的原因
+    * 当函数是声明的形式会提升：function gg(){}
+    * 为表达式的时候，不会被提升： const gg = function (){}
+   -->
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!--
+ * @Description: Web Workers
+ * @Author: xiao.zhang
+ * @Date: 2020-12-11 11:37:12
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-11 14:35:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Workers产生的背景和使用</title>
+  </head>
+  <body>
+    <input type="text" placeholder="数值" id="input" />
+    <button id="button">计算</button>
+    <script>
+      // 斐波那契数列
+      // 1 1 2 3 5 8 f(n) = f(n-1)+ f(n-2)
+      // 实现输入下标，得到斐波那契数列的值
+      // * 虽然已经实现，但是当输入n过大，浏览器计算时间需要很久，然后导页面在等待过程中也不可以操作。
+      // * 所以引入了Web Workers
+      // function fibonacci(n) {
+      //   return n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2)
+      // }
+      // const inputNode = document.getElementById('input')
+      // const buttonNode = document.getElementById('button')
+      // buttonNode.onclick = function () {
+      //   var n = inputNode.value
+
+      //   console.log(fibonacci(n))
+      // }
+    </script>
+    <!-- 
+    1.H5规范提供了js分线程的实现，取名为Web Workers
+    2.优点：
+      * 不阻塞主线程
+    2.不足：
+      * 浏览器兼容问题
+      * worker内代码不可更新dom
+      * 不能跨域加载js
+      * 慢，因为它在分线程计算，肯定没有在主线程快
+    -->
+    <script>
+      const inputNode = document.getElementById('input')
+      const buttonNode = document.getElementById('button')
+      buttonNode.onclick = function () {
+        var n = inputNode.value
+        // 创建一个Worker对象
+        var w = new Worker('./35._demo_workers.js')
+
+        // 向分线程发送消息
+        w.postMessage(n)
+
+        // 绑定接收消息的监听
+        w.onmessage = function (event) {
+          // 主线程接收分线程返回的数据
+          console.log('event', event.data, event)
+        }
+      }
+    </script>
+  </body>
+</html>
