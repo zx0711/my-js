@@ -1,0 +1,78 @@
+<!--
+ * @Description: ES6的解构赋值和深浅拷贝
+ * @Author: xiao.zhang
+ * @Date: 2020-12-31 17:46:21
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-04 15:37:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6的解构赋值和深浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      /***
+       * 深浅拷贝区别： 新开内存指针的就是深拷贝
+       * 深拷贝：修改新变量的值，不会影响原变量的值，默认情况下基本数据类型都是深拷贝（其实就是复制的时候，会新开一个栈，不会使用原有的栈）
+       * 浅拷贝：修改新变量的值，会影响原变量的值，默认情况下对象类型（其实就是拷贝的时候并没有给b创造独立的内存，只是把a指向数据的指针拷贝给了b）
+       */
+      // 深拷贝：
+      let a = 1
+      let b = a
+      b = 2
+      console.log(a, b) // 1,2
+
+      // 浅拷贝：
+      let a = {
+        name: 'xiaoming',
+      }
+      let b = a
+      b.name = 'zhangsan'
+      console.log(a.name) // zhangsan
+    </script>
+    <script>
+      /***
+       * 对象的扩展运算符
+       * 用于取出参数对象中的所有可遍历属性，拷贝到当前对象中
+       * 深拷贝还是浅拷贝？
+       * 第一层是深拷贝，第二层是浅拷贝
+       * 将某些数据结构转为数组
+       */
+      let bar1 = {
+        a: 1,
+        b: 2,
+      }
+      let bar2 = {
+        ...bar1,
+        b: 3,
+      }
+      console.log(bar1.b) // 2 这样看属于深拷贝，bar2没有影响bar1中b的值
+
+      let aa = {
+        age: 18,
+        name: 'aaa',
+        address: {
+          city: 'shanghai',
+        },
+      }
+
+      let bb = { ...aa }
+      bb.address.city = 'shenzhen'
+
+      console.log(aa.address.city) // shenzhen 这样看属于浅拷贝，bb.address.city影响了aa.address.city
+    </script>
+    <script>
+      // 拓展运算符用于数组赋值
+      const [first, ...rest] = [1, 2, 3, 4, 5]
+      console.log('rest', rest)
+
+      function foo(params) {
+        console.log('fffff', [...arguments]) // [122,333,'ffdd']
+      }
+      foo(122, 333, 'ffdd')
+    </script>
+  </body>
+</html>

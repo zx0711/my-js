@@ -1,0 +1,89 @@
+<!--
+ * @Description: this指向问题
+ * @Author: xiao.zhang
+ * @Date: 2020-12-28 13:54:21
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2020-12-28 14:47:15
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="title">我是标题</p>
+    <script>
+      /*
+       * 全局作用域下，this指向window
+       * 严格模式下，全局作用域普通函数调用，this指向undefined
+       * 非严格模式下，全局作用域普通函数调用，this指向window
+       */
+      'use strict'
+      console.log('全局模式', this) // window
+      const temp1 = 1111
+      function fn1() {
+        console.log('nihao', this) // undefine
+      }
+      fn1()
+    </script>
+    <script>
+      /*
+       * 对象函数，指向当前对象
+       */
+      const zxObj = {
+        name: 'zx',
+        age: 18,
+        getMoney: function () {
+          console.log('对象函数', this) // zxObj
+        },
+      }
+      zxObj.getMoney()
+    </script>
+
+    <script>
+      /*
+       * 构造函数或者构造函数原型对象，this指向构造函数的实例xiaoming
+       */
+      function Person() {
+        console.log(this) // xiaoming
+      }
+
+      Person.prototype.getAge = function () {
+        console.log(this) //xiaoming
+      }
+      const xiaoming = new Person()
+      xiaoming.getAge()
+    </script>
+
+    <script>
+      /**
+       * 箭头函数的this，指向window
+       */
+      const obj = {
+        name: 'xiaohong',
+        getAge: () => {
+          console.log('我是箭头函数', this) // window
+        },
+        getWater: function () {
+          console.log('我不是箭头函数', this) // obj
+        },
+      }
+
+      obj.getAge()
+      obj.getWater()
+    </script>
+
+    <script>
+      /**
+       * this指向监听器所在的DOM对象
+       */
+      const dd = document.getElementById('title')
+      dd.onclick = function () {
+        console.log(this) // <p id="title">我是标题</p>
+      }
+    </script>
+  </body>
+</html>

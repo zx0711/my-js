@@ -1,0 +1,33 @@
+<!--
+ * @Description: slice
+ * @Author: xiao.zhang
+ * @Date: 2021-01-04 15:51:45
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-04 16:09:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *  slice(start,end)
+       * 返回一个新的数组，包含从start到end(不包含end)的元素，对原数组不受影响哈
+       * start:
+       * 正数，代表索引值从0开始（从右边开始,按从右到左顺序查找）
+       * 负数，代表索引值从-1开始（从左边开始,按从右到左顺序查找）
+       *
+       * end:
+       * 正数：从右到左的方向
+       * 负数：从左到右的方向
+       */
+      var newArray = [11, 12, 13]
+      const temp = newArray.slice(-3, -1)
+      console.log(temp)
+    </script>
+  </body>
+</html>
