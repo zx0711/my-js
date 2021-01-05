@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-12-28 13:54:21
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-12-28 14:47:15
+ * @LastEditTime: 2021-01-05 14:39:56
 -->
 
 <!DOCTYPE html>
@@ -26,6 +26,8 @@
       const temp1 = 1111
       function fn1() {
         console.log('nihao', this) // undefine
+        // 'use strict'
+        console.log('nihao', this) // window
       }
       fn1()
     </script>

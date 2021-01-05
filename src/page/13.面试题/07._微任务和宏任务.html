@@ -1,0 +1,43 @@
+<!--
+ * @Description: 微任务和宏任务
+ * @Author: xiao.zhang
+ * @Date: 2021-01-05 14:50:11
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-05 15:54:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      * 宏任务：去银行办理业务，大家取号办理,每一个办理业务员的人就是宏任务
+      * 微任务: 办理任务过程中做的各种事情
+      * 所以：在当前的微任务没有执行完成时，是不会执行下一个宏任务的。
+      * 怎么区分宏任务和微任务
+        * 宏任务：settimeout、setInterval
+        * 微任务：promise.then、catch、finally、process.nextTick
+
+      * 何时执行宏任何何时执行微任务？
+        * 每办理完一个业务，柜员就会问当前的客户，是否还有其他需要办理的业务。（检查还有没有微任务需要处理）
+        * 而客户明确告知说没有事情以后，柜员就去查看后边还有没有等着办理业务的人。（结束本次宏任务、检查还有没有宏任务需要处理）
+        * Event Loop：这个检查的过程是持续进行的，每完成一个任务都会进行一次，而这样的操作就被称为事件轮循
+      
+      * 概念
+        * 宏任务：当前调用栈中执行的代码为宏任务
+        * 微任务：当前（此次事件循环中）宏任务执行完，在下一个宏任务开始之前需要执行的任务,可以理解为回调事件。（promise.then，proness.nextTick等等）
+        
+      * 运行机制
+        * 1、在执行栈中执行一个宏任务。
+        * 2、执行过程中遇到微任务，将微任务添加到微任务队列中。
+        * 3、当前宏任务执行完毕，立即执行微任务队列中的任务。
+        * 4、当前微任务队列中的任务执行完毕，检查渲染，GUI线程接管渲染。
+        * 5、渲染完毕后，js线程接管，开启下一次事件循环，执行下一次宏任务。
+      */
+    </script>
+  </body>
+</html>

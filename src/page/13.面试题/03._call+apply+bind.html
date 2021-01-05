@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-12-28 14:55:00
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-12-31 17:38:05
+ * @LastEditTime: 2021-01-05 14:35:46
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -38,22 +38,28 @@
     </script>
 
     <script>
+      /*
+       * call 和 apply和bind区别
+       * 第一个参数都是 this 的指向对象
+       * 第二个参数call是单个传入，apply是传入的数组
+       * bind和call的入参一样，但是bind返回一个函数
+       */
+      const testCallObj = {
+        name: 'zxc',
+        getAge: function (name1, name2) {
+          console.log('testCallObj', this, name1, name2)
+          console.log('testCallObj2', this, [...arguments])
+        },
+      }
+      testCallObj.getAge.call({ name: 'xxxx' }, { name1: 'vv' }, 2222)
+      testCallObj.getAge.apply({ name: 'cccc' }, [{ name1: 'vv' }, 111])
+    </script>
+
+    <script>
       /**
        * 手写call
        */
-      Function.prototype.call1 = function (context, ...arr) {
-        if (context === null || context === undefined) {
-          // 指定为 null 和 undefined 的 this 值会自动指向全局对象(浏览器中为window)
-          context = window
-        } else {
-          context = Object(context) // 值为原始值（数字，字符串，布尔值）的 this 会指向该原始值的实例对象
-        }
-        const specialPrototype = Symbol('特殊属性Symbol') // 用于临时储存函数
-        context[specialPrototype] = this // 函数的this指向隐式绑定到context上
-        let result = context[specialPrototype](...arr) // 通过隐式绑定执行函数并传递参数
-        delete context[specialPrototype] // 删除上下文对象的属性
-        return result // 返回函数执行结果
-      }
+      Function.prototype.call1 = function (context) {}
 
       function test() {
         console.log(this)
