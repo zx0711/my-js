@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-12-28 10:46:16
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-12-29 14:58:45
+ * @LastEditTime: 2021-01-08 15:40:06
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +18,19 @@
        * map函数
        * 接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回
        */
+      const ff = [
+        { name: 'zx', age: 18 },
+        { name: 'tom', age: 19 },
+      ]
+      ff.forEach((info, index) => {
+        info.name = '222'
+      })
+
+      console.log('好像使用不对劲', ff)
+
+      // var array1 = [1, 4, 9, 16]
+      // const map1 = array1.map((x) => x * 2)
+      // console.log(map1, array1)
     </script>
     <script>
       /*
