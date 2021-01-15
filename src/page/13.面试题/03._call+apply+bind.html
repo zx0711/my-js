@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-12-28 14:55:00
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-01-05 14:35:46
+ * @LastEditTime: 2021-01-14 11:02:03
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +66,13 @@
       }
       // test()
       test.call1({ name: 1122 })
+    </script>
+
+    <script>
+      function test1() {
+        console.log('真正的指向', this, arguments)
+      }
+      test1.apply({ name: 'zxcs' }, [111])
     </script>
   </body>
 </html>
