@@ -1,0 +1,122 @@
+<!--
+ * @Description: let 和 var区别
+ * @Author: xiao.zhang
+ * @Date: 2021-01-15 18:04:41
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-18 13:54:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let变量不可以重复声明
+      var aa = 1233
+      var aa = 12332
+      console.log('nihao', aa) // 报错
+    </script>
+
+    <script>
+      // let可以定义块级作用域变量
+      {
+        let a = 12
+        var b = 1
+      }
+      console.log(b) // 1
+      console.log(a) // 报错
+    </script>
+
+    <script>
+      // let没有变量提升，var有
+      console.log(a1) // undefined 已声明未赋值
+      console.log(b1) // 报错
+      var a1 = 10
+      let b1 = 20
+    </script>
+
+    <script>
+      // 因为let没有变量提升且let只有块级作用域，所以在for循环内有效
+      // var 定义的i是全局变量，只有这一个变量
+      // let 定义的i每一次选好都是一个新的变量
+      var a = []
+      for (let i = 0; i < 10; i++) {
+        a[i] = function () {
+          console.log(i)
+        }
+      }
+      a[6]() // 6
+
+      var a = []
+      for (var i = 0; i < 10; i++) {
+        a[i] = function () {
+          console.log(i)
+        }
+      }
+      a[6]() // 10
+    </script>
+
+    <script>
+      // 暂时性死区
+      // 如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域
+      // 在代码块内，使用let、const命令声明变量之前，该变量都是不可用的,也就是暂时性死区
+      var temp = 'qwer'
+      if (true) {
+        temp = 'abc'
+        console.log(temp)
+        let temp = 'dfg'
+      }
+    </script>
+
+    <script>
+      // es6的块级作用域必须有大括号，不然会报错
+      if(true) let x =2 // Uncaught SyntaxError: Lexical declaration cannot appear in a single-statement context
+    </script>
+
+    <script>
+      // es6 块级作用域中可以声明函数,行为类似于var声明的变量
+      // 但是其他环境还是将块级作用域的函数声明当作let处理
+      // 考虑到环境导致的差异，也就是兼容性问题，所以尽量避免在块级作用域内声明函数，如果确实需要，那就写成函数表达式，而不是函数声明语句
+
+      // 下面的例子
+      if (true) {
+        let foo1 = 123
+        function fn() {
+          console.log('测试111')
+        }
+        fn()
+      }
+
+      // 等于上面的例子,相当于先声明了
+      if (true) {
+        let foo1 = 123
+        var fn = undefined
+        function fn() {
+          console.log('测试111')
+        }
+        fn()
+      }
+
+      // 块级作用域的函数优先写成函数表达式，而不是函数声明语句
+
+      // 函数表达式
+      {
+        let a = 'secret'
+        function f() {
+          return a
+        }
+      }
+
+      // 函数声明
+      {
+        let a = 'secret'
+        let b = function f() {
+          return a
+        }
+      }
+    </script>
+  </body>
+</html>
