@@ -1,0 +1,79 @@
+<!--
+ * @Description: 遍历器（interator）
+ * @Author: xiao.zhang
+ * @Date: 2021-01-20 14:10:21
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-20 15:06:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>遍历器（interator）和 for...of循环</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 遍历器（Iterator）是一种接口,任何数据结构只要部署了遍历器接口，就可以完成遍历操作
+       * 只要部署了遍历器接口，就可以使用for...of循环
+       */
+      const xiyouji = ['唐僧', '孙悟空', '猪八戒', '沙僧']
+      for (let v of xiyouji) {
+        console.log('vvvv', v) // '唐僧', '孙悟空', '猪八戒', '沙僧'
+      }
+      for (let v in xiyouji) {
+        console.log('vvvv', v) // 0,1,2,3
+      }
+      console.log('xiyouji', xiyouji)
+
+      const iteratorObj = xiyouji[Symbol.iterator]()
+      // 调用对象的.next方法
+      /**
+       * 每一次调用next方法，都会返回数据结构的当前成员的信息。
+       * 具体来说，就是返回一个包含value和done两个属性的对象。
+       * 其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。
+       */
+      console.log('iteratorObj', iteratorObj.next())
+      console.log('iteratorObj', iteratorObj.next())
+      console.log('iteratorObj', iteratorObj.next())
+      console.log('iteratorObj', iteratorObj.next())
+      console.log('iteratorObj', iteratorObj.next())
+    </script>
+
+    <script>
+      /**
+       * 迭代器的使用场景
+       * 1，自定义遍历数据
+       */
+      const banji = {
+        name: '终极一班',
+        status: ['xiaoming', 'xiaohong', 'nice', 'alice'],
+        [Symbol.iterator]: function () {
+          console.log('this', this)
+          let index = 0
+          const that = this
+          return {
+            next: function () {
+              console.log('this2', this) // 对象函数里，this指向当前对象
+              if (index < that.status.length) {
+                const result = { value: that.status[index], done: false } // done: false表示遍历没有结束
+                index++
+                return result
+              } else {
+                return { value: undefined, done: true }
+              }
+            },
+          }
+        },
+      }
+      console.log('banji', banji)
+
+      for (let v of banji) {
+        console.log('v', v)
+      }
+      // const y = [12]
+      // console.log('y', y)
+    </script>
+  </body>
+</html>

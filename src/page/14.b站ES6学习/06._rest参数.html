@@ -1,0 +1,43 @@
+<!--
+ * @Description: rest参数
+ * @Author: xiao.zhang
+ * @Date: 2021-01-18 17:09:39
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-18 19:36:07
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rest参数</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * ES6引入rest参数，用于获取函数的实参，用来代替arguments
+       * rest必须要放到参数的最后,不然会报错
+       ******* rest只能运用到函数的参数中 *****
+       */
+
+      // ES5获取实参的方式
+      function data() {
+        console.log('arguments', arguments) // Arguments(4) [1, 2, 3, 4, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+      }
+
+      data(1, 2, 3, 4)
+
+      // rest参数
+      function newData(...args) {
+        console.log('rest', args) // [1,2,3,4,5]
+      }
+      newData(1, 2, 3, 4, 5)
+
+      //rest必须要放到参数的最后
+      function fn3(a, b, ...args) {
+        console.log('args', args)
+      }
+      fn3(1, 2, 3, 4, 5, 4)
+    </script>
+  </body>
+</html>

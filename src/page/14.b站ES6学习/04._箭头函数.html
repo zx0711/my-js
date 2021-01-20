@@ -1,0 +1,90 @@
+<!--
+ * @Description: 箭头函数
+ * @Author: xiao.zhang
+ * @Date: 2021-01-18 15:45:29
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-18 16:53:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>箭头函数</title>
+  </head>
+  <body>
+    <div id="nihao">11111</div>
+    <script>
+      /**
+       * 1，在箭头函数中，this是固定的，使用call 和apply也是不可改变的,
+       * 2, 箭头函数的this总是指向函数声明时所在作用域下的this的值
+       */
+
+      foo = () => {
+        console.log('父id', this.id) // 21
+
+        setTimeout(() => {
+          console.log('id:', this.id) // 21
+        }, 100)
+      }
+      window.id = 21
+      foo.call({ id: 42 })
+
+      function fn1() {
+        console.log('fn1', this.id1) // 43
+      }
+      window.id1 = 22
+      fn1.call({ id1: 43 })
+    </script>
+
+    <script>
+      /**
+       * 不可以当作构造函数，也就说不可以使用new,会报错
+       * 为什么不可以当作构造函数，是因为它没有自己的this,它使用的总是外层代码的this
+       */
+      foo = () => {}
+      const lizi1 = new foo()
+      console.log(lizi1) // Uncaught TypeError: foo is not a constructor
+    </script>
+
+    <script>
+      /**
+       * 不可以使用arguments
+       */
+    </script>
+
+    <script>
+      /***
+       * 不适合使用箭头函数的场景
+       * 1，定义对象的方法，且该方法包含this,因为该对象不构成单独的作用域
+       * 2，需要动态this的时候，也不应该使用箭头函数
+       */
+
+      // 1
+      const obj = {
+        name: 'zx',
+        getName: () => {
+          console.log('this.name', this) // window
+        },
+      }
+      obj.getName()
+
+      // 2
+      const temp = document.getElementById('nihao')
+      temp.addEventListener('click', dd, false)
+
+      const dd = () => {
+        console.log('this1', this) // window
+      }
+    </script>
+
+    <script>
+      /**
+       * 箭头函数的简写
+       * 1，省略小括号，当形参有且只有一个的时候
+       * 2,省略花括号，当代码体只有一条语句的时候，此时return也要省掉
+       */
+      const x = (n) => n + 1
+    </script>
+  </body>
+</html>

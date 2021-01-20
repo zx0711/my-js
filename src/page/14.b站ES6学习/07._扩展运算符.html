@@ -1,0 +1,97 @@
+<!--
+ * @Description: 拓展运算符
+ * @Author: xiao.zhang
+ * @Date: 2021-01-18 17:40:28
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-20 11:17:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拓展运算符</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 将一个数组转为用逗号分隔的参数序列
+       * 将一个字符串转为用逗号分隔的参数序列
+       * 1.替代函数的apply方法
+       * 应用：
+       * 1，复制数组
+       * 2，合并数组
+       * 3，与解构赋值结合，生成新数组
+       */
+      const tfboys = ['易烊千玺', '王源', '王俊凯']
+
+      function foo(x, y, z) {
+        console.log(x, y, z) // "易烊千玺", "王源", "王俊凯"
+      }
+      foo(...tfboys)
+    </script>
+
+    <script>
+      // 替代函数的apply方法
+      // ES5 的写法
+      function f(x, y, z) {
+        // ...
+      }
+      var args = [0, 1, 2]
+      f.apply(null, args)
+
+      // ES6的写法
+      function f(x, y, z) {
+        // ...
+      }
+      let args1 = [0, 1, 2]
+      f(...args1)
+    </script>
+
+    <script>
+      // 1，复制数组,深拷贝，不影响a1的值
+      const a1 = [1, 2]
+      const a2 = [...a1]
+    </script>
+
+    <script>
+      // 2，合并数组,但是属于浅拷贝
+      const arr1 = ['a', 'b']
+      const arr2 = ['c']
+      const arr3 = ['d', 'e']
+
+      // ES5 的合并数组
+      arr1.concat(arr2, arr3)
+      // [ 'a', 'b', 'c', 'd', 'e' ]
+
+      // ES6 的合并数组
+      const newArr = [...arr1, ...arr2, ...arr3]
+      // [ 'a', 'b', 'c', 'd', 'e' ]
+    </script>
+
+    <script>
+      // 3,与解构赋值结合,等于rest
+
+      function foo([first, ...second]) {
+        console.log(second)
+      }
+      foo([1, 2, 3, 4])
+    </script>
+
+    <script>
+      // 4,字符串转为数组
+      const strings = 'nihao'
+      console.log(...strings) // n i h a o
+      const arrs = [1, 2, 3, 4]
+      console.log(...arrs) // 1 2 3 4
+    </script>
+
+    <script>
+      // 5,将伪数组转为真正的数组
+      function foo() {
+        console.log('伪数组转为真正的数组', [...arguments])
+      }
+      foo(1, 2, 3)
+    </script>
+  </body>
+</html>
