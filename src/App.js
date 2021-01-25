@@ -1,9 +1,9 @@
 /*
- * @Description:
+ * @Description: reactIntroduct
  * @Author: xiao.zhang
  * @Date: 2020-09-18 11:06:27
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-10-28 18:13:09
+ * @LastEditTime: 2021-01-25 15:33:37
  */
 import React from 'react'
 // import logo from './logo.svg';
@@ -18,11 +18,14 @@ import React from 'react'
 // import DefineHook from './page/28.defineHook'
 // import UseMemo from './page/29.useMemo'
 // import UseAll from './page/30.useMemo+useCallback'
+
+// import { reactIntroduct } from './page/15.b站react学习'
 import './App.css'
 
 function App() {
   return (
     <div className="App">
+      <h1>hello，react</h1>
       {/* <MemoHook></MemoHook> */}
       {/* <ErrorDemo /> */}
       {/* <EffectHook /> */}
@@ -33,6 +36,7 @@ function App() {
       {/* <UseAll></UseAll> */}
       {/* <DefineHook></DefineHook> */}
       {/* <UseMemo></UseMemo> */}
+      {/* <reactIntroduct></reactIntroduct> */}
     </div>
   )
 }

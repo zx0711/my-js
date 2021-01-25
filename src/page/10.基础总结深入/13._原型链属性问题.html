@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-26 20:00:55
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-27 10:52:10
+ * @LastEditTime: 2021-01-22 16:58:46
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,14 +16,16 @@
     <!-- 
       1，读取对象的属性时：会自动到原型链上查找
       2, 设置对象的属性值时：不会查找原型链，如果当前对象中没有此属性，直接添加此属性并设置其值
-      3,方法一般定义在原型中(prototype)，属性一般通过构造函数定义在对象本身身上（也就是定义在实例身上）
+      3, 方法一般定义在原型中(prototype)，属性一般通过构造函数定义在对象本身身上（也就是定义在实例身上）
      -->
     <script>
-      function Fn() {}
+      function Fn() {
+        this.age = 18
+      }
       Fn.prototype.name = 'zx'
 
       const fn = new Fn()
-      console.log(fn)
+      console.log(fn, fn.name)
       let fn2 = new Fn()
       fn2.name = 'bbbb'
       console.log(fn2.name, fn2)

@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-27 10:55:06
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-27 13:58:29
+ * @LastEditTime: 2021-01-22 17:15:37
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,8 @@
   <body>
     <!-- 
     1，instanceof是如何判断的
-    2，Function 是通过new自己产生的实例
+    2, instanceof只支持引用类型的实例与类关系判定
+    3，Function 是通过new自己产生的实例
    -->
     <script>
       function Foo() {}
@@ -33,6 +34,15 @@
 
       function Foo() {}
       console.log(Object instanceof Foo) // false
+    </script>
+
+    <script>
+      function A() {}
+
+      function B() {}
+      B.prototype = A.prototype
+      var b = new B()
+      console.log('a', b.__proto__, b instanceof A)
     </script>
   </body>
 </html>

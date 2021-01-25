@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2021-01-20 14:10:21
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-01-20 15:06:55
+ * @LastEditTime: 2021-01-21 15:44:41
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <script>
       /**
        * 遍历器（Iterator）是一种接口,任何数据结构只要部署了遍历器接口，就可以完成遍历操作
-       * 只要部署了遍历器接口，就可以使用for...of循环
+       * 只要部署了遍历器接口，就可以使用for...of循环,数组部署了遍历器接口
        */
       const xiyouji = ['唐僧', '孙悟空', '猪八戒', '沙僧']
       for (let v of xiyouji) {
@@ -32,7 +32,7 @@
       /**
        * 每一次调用next方法，都会返回数据结构的当前成员的信息。
        * 具体来说，就是返回一个包含value和done两个属性的对象。
-       * 其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。
+       * 其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束，为true表示结束
        */
       console.log('iteratorObj', iteratorObj.next())
       console.log('iteratorObj', iteratorObj.next())

@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-11-25 17:44:57
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2020-11-25 19:01:34
+ * @LastEditTime: 2021-01-21 17:46:40
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,25 +18,26 @@
     * 所有函数内部都有一个变量this
     * 它的值是调用函数的当前对象
     * 任何函数本质上都是通过某个对象来调用的，如果没有直接指定就是window
+    * this指向调用的对象，谁调用的他就指向谁
 
     2，如何确定this的值
     -->
     <script>
       function Person(color) {
-        console.log(this)
+        console.log(this) // p
         this.color = color
         this.getColor = function () {
-          console.log(this)
+          console.log(this) // p
           return this.color
         }
         this.setColor = function (color) {
-          console.log(this)
+          console.log(this) // p
           this.color = color
         }
       }
-      // Person('red') // window
-      var p = new Person('yellow') // p
-      p.getColor() // p
+
+      var p = new Person('yellow')
+      p.getColor()
 
       var obj = {}
       p.setColor.call(obj, 'black') // obj
@@ -48,11 +49,33 @@
     <script>
       function fun1() {
         function fun2() {
-          console.log(this)
+          console.log(this) // window
         }
         fun2()
       }
       fun1()
+    </script>
+    <script>
+      /**
+       * 全局作用域下普通函数调用
+       * 严格模式下，this指向undefined
+       * 非严格模式下，this指向window
+       */
+
+      function testThis() {
+        console.log('https://es6.ruanyifeng.com/#docs/symbol', this)
+      }
+
+      function diaoyong() {
+        console.log('this,this', this)
+
+        testThis()
+      }
+
+      const dd = {
+        name: 'zx',
+      }
+      diaoyong.call(dd)
     </script>
   </body>
 </html>

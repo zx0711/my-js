@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-12-28 13:54:21
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-01-05 14:39:56
+ * @LastEditTime: 2021-01-21 17:39:55
 -->
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@
 
     <script>
       /**
-       * 箭头函数的this，指向window
+       * 箭头函数的this，指向创建时候所在的作用域中的this
        */
       const obj = {
         name: 'xiaohong',
@@ -80,7 +80,7 @@
 
     <script>
       /**
-       * this指向监听器所在的DOM对象
+       * 事件处理，this指向监听器所在的DOM对象
        */
       const dd = document.getElementById('title')
       dd.onclick = function () {

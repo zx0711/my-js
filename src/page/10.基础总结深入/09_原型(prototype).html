@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: xiao.zhang
+ * @Date: 2020-11-25 19:08:23
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-01-22 15:54:28
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +15,7 @@
   <body>
     <!-- 
     1,函数的prototype属性
-  * 每个函数都有一个prototype属性，它默认指向一个Object空对象（原型对象）
+  * 每个函数都有一个prototype属性，它默认指向一个Object空对象（也就是原型对象）
   * 原型对象中有一个属性constructor,它指向构造函数
   * 每个实例对象也有constructor，它也指向构造函数
     2，给原型对象添加属性（一般是方法）
@@ -18,7 +25,7 @@
       console.log('date', Date.prototype, typeof Date.prototype)
 
       function Fn1() {
-        console.log('fn1')
+        console.log('fn1') // fn1
       }
 
       Fn1.prototype.getFn1 = function () {
@@ -30,8 +37,8 @@
       fun.getFn1()
 
       // 原型对象中有一个属性constructor,它指向函数对象
-      console.log(Date.prototype.constructor)
-      console.log(Fn1.prototype.constructor)
+      console.log(Date.prototype.constructor) // Date() { [native code] }
+      console.log(Fn1.prototype.constructor) //function Fn1() {}
     </script>
   </body>
 </html>
