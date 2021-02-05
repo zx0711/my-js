@@ -1,0 +1,33 @@
+<!--
+ * @Description: 类中方法this指向
+ * @Author: xiao.zhang
+ * @Date: 2021-02-05 14:13:12
+ * @LastEditors: xiao.zhang
+ * @LastEditTime: 2021-02-05 14:26:29
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, age) {
+          this.name = name
+          this.age = age
+        }
+        speak() {
+          console.log(this)
+        }
+      }
+      const p1 = new Person('xx', 18)
+      p1.speak() // p1
+
+      const x = p1.speak
+      x() // undefined
+    </script>
+  </body>
+</html>

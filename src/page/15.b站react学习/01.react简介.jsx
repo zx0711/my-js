@@ -17,6 +17,13 @@ function XX() {
    * 2，英文官网：https://reactjs.org/
    * 但凡一个框架，一般会提供自己的开发工具
    * 1，react提供的开发工具：React DevTools
+   *
+   * React DevTools：
+   * 1，在谷歌浏览右上角-更多工具-扩展程序
+   * 2，下载FaceBook-React DevTools
+   * 3, 如果当前页面是开发模式，亮红色图标
+   * 4，如果当前页面是打包完成模式，亮正常蓝色图标
+   * 5，开发者工具里多了Profiler、Components
    */
 }
 
