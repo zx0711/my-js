@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-09-18 11:06:27
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-02-05 16:07:50
+ * @LastEditTime: 2021-02-08 17:03:27
  */
 import React from 'react'
 // import logo from './logo.svg';
@@ -21,7 +21,19 @@ import React from 'react'
 
 import Foo from './page/15.b站react学习/07.函数式组件'
 import Person from './page/15.b站react学习/09._类式组件'
-import { FF, TestSetState, SimpleSetState } from './page/15.b站react学习'
+import {
+  FF,
+  TestSetState,
+  SimpleSetState,
+  TestProps,
+  SimpleProps,
+  ConstructorProps,
+  FuncProps,
+  TestRefs,
+  CallBackRefs,
+  TT,
+  CreateRefs,
+} from './page/15.b站react学习'
 import './App.css'
 
 function App() {
@@ -32,6 +44,14 @@ function App() {
       <FF />
       <TestSetState />
       <SimpleSetState />
+      <TestProps {...{ age: 181, sex: '女' }} />
+      <SimpleProps {...{ age: 181, sex: '女' }} />
+      <ConstructorProps {...{ age: 181, sex: '女' }} />
+      <FuncProps {...{ age: 181, sex: '女' }} />
+      <TestRefs />
+      <CallBackRefs />
+      <TT />
+      <CreateRefs />
       {/* <MemoHook></MemoHook> */}
       {/* <ErrorDemo /> */}
       {/* <EffectHook /> */}

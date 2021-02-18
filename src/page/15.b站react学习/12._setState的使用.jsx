@@ -15,7 +15,7 @@ export default class TestSetState extends Component {
   }
 
   // change调用几次？ --- 点几次调几次
-  change() {
+  change = () => {
     console.log('我是change', this)
     const { isHot } = this.state
     // 严重注意： 状态不可直接更改，要借助一个内置的API去更改
