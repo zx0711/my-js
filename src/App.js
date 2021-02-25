@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-09-18 11:06:27
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-02-08 17:03:27
+ * @LastEditTime: 2021-02-23 13:55:11
  */
 import React from 'react'
 // import logo from './logo.svg';
@@ -33,13 +33,15 @@ import {
   CallBackRefs,
   TT,
   CreateRefs,
+  Diff01,
+  Diff02,
 } from './page/15.b站react学习'
 import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <Foo />
+      {/* <Foo />
       <Person />
       <FF />
       <TestSetState />
@@ -51,7 +53,7 @@ function App() {
       <TestRefs />
       <CallBackRefs />
       <TT />
-      <CreateRefs />
+      <CreateRefs /> */}
       {/* <MemoHook></MemoHook> */}
       {/* <ErrorDemo /> */}
       {/* <EffectHook /> */}
@@ -63,6 +65,8 @@ function App() {
       {/* <DefineHook></DefineHook> */}
       {/* <UseMemo></UseMemo> */}
       {/* <reactIntroduct></reactIntroduct> */}
+      {/* <Diff01></Diff01> */}
+      <Diff02></Diff02>
     </div>
   )
 }

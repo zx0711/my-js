@@ -5,15 +5,28 @@ import ReactDOM from 'react-dom'
  *   componentWillMount
  *   componentWillReceiveProps
  *   componentWillUpdate
- * 
+ *
  * 新增的：
  *   getDerivedStateFromProps()
  *   getSnapshotBeforeUpdate(prevProps, prevState)
+ */
 
- * 三个阶段：
- *   挂载
- *   更新
- *   卸载
+/**
+ * 1,初始化阶段：由ReactDOM.render()触发----初次渲染
+ *          1.constructor
+ *          2.getDerivedStateFromProps
+ *          3.render
+ *          4.componentDidMount ===>常用
+ *            一般在这个钩子中做一些初始化的事，例如：开启定时器，发送网络请求，订阅消息
+ * 2,更新阶段：由组件内部setState()和父组件重新render触发
+ *          1.getDerivedStateFromProps
+ *          2.shouldComponentUpdate
+ *          3.render
+ *          4.getSnapshotBeforeUpdate
+ *          5.componentDidUpdate
+ * 3，下载阶段：由ReactDOM.unmountComponentAtNode触发
+ *          1.componentWillUnmount ====>常用
+ *            一般在这个钩子里做一些收尾的事情，例如：关闭定时器，取消订阅
  */
 
 export default class newLife extends Component {
