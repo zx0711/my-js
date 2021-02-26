@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-09-18 11:06:27
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-02-25 18:19:20
+ * @LastEditTime: 2021-02-26 13:51:16
  */
 import React from 'react'
 // import logo from './logo.svg';
@@ -36,6 +36,7 @@ import {
   Diff01,
   Diff02,
   Axios01,
+  Dingyue1,
 } from './page/15.b站react学习'
 import './App.css'
 
@@ -69,6 +70,7 @@ function App() {
       {/* <Diff01></Diff01> */}
       {/* <Diff02></Diff02> */}
       <Axios01></Axios01>
+      <Dingyue1></Dingyue1>
     </div>
   )
 }

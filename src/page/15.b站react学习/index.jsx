@@ -15,6 +15,7 @@ import CreateRefs from './21._createRef'
 import Diff01 from './02._Dom的diff算法/01._验证Diffing算法'
 import Diff02 from './02._Dom的diff算法/02._key的作用'
 import Axios01 from './04._react的ajax/01._axios'
+import Dingyue1 from './05._消息订阅与发布/01._father'
 export {
   Foo,
   Person,
@@ -32,4 +33,5 @@ export {
   Diff01,
   Diff02,
   Axios01,
+  Dingyue1,
 }
