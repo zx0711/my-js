@@ -14,6 +14,7 @@ import TT from './20._回调形式ref调用次数'
 import CreateRefs from './21._createRef'
 import Diff01 from './02._Dom的diff算法/01._验证Diffing算法'
 import Diff02 from './02._Dom的diff算法/02._key的作用'
+import Axios01 from './04._react的ajax/01._axios'
 export {
   Foo,
   Person,
@@ -30,4 +31,5 @@ export {
   CreateRefs,
   Diff01,
   Diff02,
+  Axios01,
 }
