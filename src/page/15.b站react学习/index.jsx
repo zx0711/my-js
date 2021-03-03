@@ -16,6 +16,9 @@ import Diff01 from './02._Dom的diff算法/01._验证Diffing算法'
 import Diff02 from './02._Dom的diff算法/02._key的作用'
 import Axios01 from './04._react的ajax/01._axios'
 import Dingyue1 from './05._消息订阅与发布/01._father'
+import Fetch1 from './06._fetch发送请求/01._fetch'
+import Router1 from './07._react路由/01._react-router-dom使用'
+
 export {
   Foo,
   Person,
@@ -34,4 +37,6 @@ export {
   Diff02,
   Axios01,
   Dingyue1,
+  Fetch1,
+  Router1,
 }

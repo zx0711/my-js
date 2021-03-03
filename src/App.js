@@ -3,9 +3,10 @@
  * @Author: xiao.zhang
  * @Date: 2020-09-18 11:06:27
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-02-26 13:51:16
+ * @LastEditTime: 2021-03-03 14:50:31
  */
 import React from 'react'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 // import logo from './logo.svg';
 // import PromiseTest from './page/18.promiseTest'
 // import { ErrorDemo } from './page/22.stateHook'
@@ -37,13 +38,16 @@ import {
   Diff02,
   Axios01,
   Dingyue1,
+  Fetch1,
+  Router1,
 } from './page/15.b站react学习'
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      {/* <Foo />
+    <BrowserRouter style={{ width: '60px' }}>
+      <div className="App">
+        {/* <Foo />
       <Person />
       <FF />
       <TestSetState />
@@ -56,22 +60,25 @@ function App() {
       <CallBackRefs />
       <TT />
       <CreateRefs /> */}
-      {/* <MemoHook></MemoHook> */}
-      {/* <ErrorDemo /> */}
-      {/* <EffectHook /> */}
-      {/* <ContextHook /> */}
-      {/* <ReducerHook></ReducerHook> */}
-      {/* <HookExample></HookExample> */}
-      {/* <RefHook></RefHook> */}
-      {/* <UseAll></UseAll> */}
-      {/* <DefineHook></DefineHook> */}
-      {/* <UseMemo></UseMemo> */}
-      {/* <reactIntroduct></reactIntroduct> */}
-      {/* <Diff01></Diff01> */}
-      {/* <Diff02></Diff02> */}
-      <Axios01></Axios01>
+        {/* <MemoHook></MemoHook> */}
+        {/* <ErrorDemo /> */}
+        {/* <EffectHook /> */}
+        {/* <ContextHook /> */}
+        {/* <ReducerHook></ReducerHook> */}
+        {/* <HookExample></HookExample> */}
+        {/* <RefHook></RefHook> */}
+        {/* <UseAll></UseAll> */}
+        {/* <DefineHook></DefineHook> */}
+        {/* <UseMemo></UseMemo> */}
+        {/* <reactIntroduct></reactIntroduct> */}
+        {/* <Diff01></Diff01> */}
+        {/* <Diff02></Diff02> */}
+        {/* <Axios01></Axios01>
       <Dingyue1></Dingyue1>
-    </div>
+      <Fetch1></Fetch1> */}
+        <Router1></Router1>
+      </div>
+    </BrowserRouter>
   )
 }
 
