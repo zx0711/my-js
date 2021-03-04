@@ -3,7 +3,7 @@
  * @Author: xiao.zhang
  * @Date: 2020-09-18 11:06:27
  * @LastEditors: xiao.zhang
- * @LastEditTime: 2021-03-03 14:50:31
+ * @LastEditTime: 2021-03-04 10:35:50
  */
 import React from 'react'
 import { BrowserRouter, HashRouter } from 'react-router-dom'
@@ -74,9 +74,10 @@ function App() {
         {/* <Diff01></Diff01> */}
         {/* <Diff02></Diff02> */}
         {/* <Axios01></Axios01>
-      <Dingyue1></Dingyue1>
+   
       <Fetch1></Fetch1> */}
         <Router1></Router1>
+        {/* <Dingyue1></Dingyue1> */}
       </div>
     </BrowserRouter>
   )
